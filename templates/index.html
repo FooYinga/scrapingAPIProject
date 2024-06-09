@@ -1,0 +1,255 @@
+<!DOCTYPE HTML> 
+<html lang="en-US">
+    <head>
+        <title>OFFCHARTS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Template by Colorlib" />
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+        <meta name="author" content="Colorlib" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="shortcut icon" href="../static/images/favicon.png" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i,900|Montserrat:400,700|PT+Serif' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css"  href='../static/css/clear.css' />
+        <link rel="stylesheet" type="text/css"  href='../static/css/common.css' />
+        <link rel="stylesheet" type="text/css"  href='../static/css/font-awesome.min.css' />
+        <link rel="stylesheet" type="text/css"  href='../static/css/carouFredSel.css' />
+        <link rel="stylesheet" type="text/css"  href='../static/css/prettyPhoto.css' />
+        <link rel="stylesheet" type="text/css"  href='../static/css/sm-clean.css' />
+        <link rel="stylesheet" type="text/css"  href='../static/css/style.css' />
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+
+        <!--[if lt IE 9]>
+        <script src="../static/js/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        <!-- Preloader Gif -->
+        <table class="doc-loader">
+            <tr>
+                <td>
+                    <img src="../static/images/ajax-document-loader.gif" alt="Loading..." />
+                </td>
+            </tr>
+        </table>
+
+        <!-- Menu -->
+        <div class="menu-wrapper center-relative">
+            <nav id="header-main-menu">
+                <div class="mob-menu">CHARTS</div>
+                <ul class="main-menu sm sm-clean">
+                    <li><a href="#portfolio">Top Tracks</a></li>
+                    <li><a href="#news">Chart</a></li>
+                    <li><a href="#video">Play It All!</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- Portfolio -->
+        <div id="portfolio" class="section">
+            <div class="block content-1170 center-relative">
+                <div class="section-title-holder right">
+                    <div class="section-num">
+                        <span>UK</span>
+                    </div>
+                    <h2 class="entry-title">top tracks</h2>
+                </div>
+                <div class="section-content-holder portfolio-holder left">
+                    <div class="grid" id="portfolio-grid">
+                        <div class="grid-sizer"></div>
+
+                        {% for num, track in top_three %}
+                            <p>URI: {{ track.track_uri }}</p>
+                            <div class="grid-item element-item p_one">
+                                <iframe style="border-radius:12px"
+                                        src="https://open.spotify.com/embed/track/{{ track.track_uri }}?utm_source=generator"
+                                        width="100%" height="{{ 352 if loop.index == 1 else 152 }}" frameBorder="0" allowfullscreen=""
+                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                        loading="lazy">
+                                </iframe>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+        <!-- News -->
+        <div id="news" class="section">
+            <div class="block content-1170 center-relative">
+                <div class="section-title-holder left">
+                    <div class="section-num">
+                        <span>
+                            UK
+                        </span>
+                    </div>
+                    <h2 class="entry-title">CHART</h2>
+                </div>
+                <div class="section-content-holder left">
+                    <div class="content-wrapper">
+                        <div class="blog-holder block center-relative">
+                        {% for number, item in carousel_list %}
+                            <article class="relative blog-item-holder center-relative">
+                                <div class="num">{{ "{:02d}".format(number) }}</div>
+                                <div class="album"><img src="{{ item.cover_art_url }}" alt="Cover Art"></div>
+                                <div class="info">
+
+                                    <div class="author vcard ">{{ item.track_name }}</div>
+                                    <div class="cat-links">
+                                        <ul>
+                                            <li><a>{{ item.artist_name }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--<h3 class="entry-title">
+                                    <a href="#">Eiusmod tempor incididunt ut dolore magna labore eiusmod ipsum dolor</a>
+                                </h3>
+                                <div class="clear"></div>-->
+                            </article>
+                        {% endfor %}
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <!-- <div class="block content-1170 center-relative">
+                <div class="extra-content-left">
+                    <script> var text1_speed = "500";
+                        var text1_auto = "false";
+                        var text1_hover = "true";
+                    </script>
+                    <div class="text1 testimonial-slider-holder slider-holder">
+                        <div class="caroufredsel_wrapper">
+                            <ul id="text1" class="slides testimonial">
+                                <li>
+                                    <div class="testimonial-content">
+                                        <p class="testimonial-text">The difference between a Designer and Developer, when it comes to design skills, is the difference between shooting a bullet and throwing it.</p>
+                                        <p class="testimonial-author">SCOTT HANSELMAN</p>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                </li>
+                                <li style="width: 500px;">
+                                    <div class="testimonial-content">
+                                        <p class="testimonial-text">To create anything–whether a short story or a magazine profile or a film or a sitcom–is to believe, if only momentarily, you are capable of magic.</p>
+                                        <p class="testimonial-author">TOM BISSEL</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <li>
+                                    <div class="testimonial-content">
+                                        <p class="testimonial-text">As a profession, graphic designers have been shamefully remiss or ineffective about plying their craft for social or political betterment.</p>
+                                        <p class="testimonial-author">STEVEN HELLER</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a id="text1_next" class="carousel_text_next" href="#"></a>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+
+        <!-- Video -->
+        <div id="video" class="section">
+            <div class="block content-1170 center-relative">
+                <div class="section-title-holder right">
+                    <div class="section-num">
+                        <span>
+                            PLAY
+                        </span>
+                    </div>
+                    <h2 class="entry-title">IT ALL!</h2>
+                </div>
+                <div class="section-content-holder left">
+                    <!--<div class="content-wrapper">
+                        <div class="content-title-holder">
+                            <p class="content-title">Video</p>
+                        </div>
+                        <div class="one_half ">
+                            Polor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt ut dolore magna labore eiusmod. Lorem ipsum <strong>dolor sit amet</strong> consectetur est adipisicing elit, sed do eiusmod tempor
+                        </div>
+                        <div class="one_half last ">
+                            <span style="color: #FFBA42;"><strong>2001-2003 ·</strong></span> <span style="color: #727190;"><em>Art Studio Lorem Donec</em></span><br>
+                            <span style="color: #FFBA42;"><strong>2003-2006 ·</strong></span> <span style="color: #727190;"><em>Per Set Web Site</em></span><br>
+                            <span style="color: #FFBA42;"><strong>2006-2010 ·</strong></span> <span style="color: #727190;"><em>Setera Donec EstNunc</em></span><br>
+                            <span style="color: #FFBA42;"><strong>2010-2013 ·</strong></span> <span style="color: #727190;"><em>Studio Labore Tempor</em></span><br>
+                            <span style="color: #FFBA42;"><strong>2013-2016 ·</strong></span> <span style="color: #727190;"><em>Magna Ipsum Amet</em></span><br>
+                        </div><div class="clear"></div>
+                        <br>
+                        <br>
+                    </div>-->
+                    <div class="full-width ">
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/{{ playlist_id }}?utm_source=generator" width="100%" height="652" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+
+
+        <!-- Footer -->
+
+        <footer>
+            <div class="footer content-1170 center-relative">
+                <ul>
+                    <li class="copyright-footer">
+                        © 2018 All rights reserved. | Trying things out <a>FooYing</a>
+                    </li>
+                    <li class="social-footer">
+                        <a href="#"><span class="fa fa-twitter"></span></a>
+                        <a href="#"><span class="fa fa-behance"></span></a>
+                        <a href="#"><span class="fa fa-dribbble"></span></a>
+                        <a href="#"><span class="fa fa-facebook"></span></a>
+                        <a href="#"><span class="fa fa-rss"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <!--Load JavaScript-->
+        <script type="text/javascript" src="../static/js/jquery.js"></script>
+        <script type='text/javascript' src='../static/js/jquery.sticky-kit.min.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.smartmenus.min.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.sticky.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.dryMenu.js'></script>
+        <script type='text/javascript' src='../static/js/isotope.pkgd.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.carouFredSel-6.2.0-packed.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.mousewheel.min.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.touchSwipe.min.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.easing.1.3.js'></script>
+        <script type='text/javascript' src='../static/js/imagesloaded.pkgd.js'></script>
+        <script type='text/javascript' src='../static/js/jquery.prettyPhoto.js'></script>
+        <script type='text/javascript' src='../static/js/main.js'></script>
+    </body>
+</html>
